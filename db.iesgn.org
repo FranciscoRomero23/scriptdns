@@ -22,3 +22,4 @@ apache  IN      AAAA    2001:abcd::1
 cliente IN      AAAA    2001:abcd::2
 www     IN      CNAME   apache
 departamentos   IN      CNAME   apache
+inferno	IN	A	192.168.1.150
