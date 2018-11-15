@@ -28,6 +28,17 @@ then
 	then
 		sed -i '/'${2}.${dominio}'/d' $zonainversa
 	fi
+elif [ $1 = "-zone" ]
+then
+	if [ $2 = "-direct" ]
+	then
+		zonaoriginal=`grep zonadirecta gestionDNS.sh | head -1`
+		sed -i '3 s/'${zonaoriginal}'/zonadirecta='${3}'/g' gestionDNS.sh
+	elif [ $2 = "-reverse" ]
+	then
+                zonaoriginal=`grep zonainversa gestionDNS.sh | head -1`
+                sed -i '4 s/'${zonaoriginal}'/zonainversa='${3}'/g' gestionDNS.sh
+	fi
 else
 	echo "Parametros incorrectos"
 fi
