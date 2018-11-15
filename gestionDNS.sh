@@ -5,8 +5,8 @@
 # Script creado por Francisco José Romero Morillo.
 
 #Los archivos de las zonas estan indicados en estas dos variables
-zonadirecta=db.iesgn.org
-zonainversa=db.192.168.10
+zonadirecta=db.francisco.gonzalonazareno.org
+zonainversa=db.172.22.200
 
 #Con el parametro -a añadimos registros
 if [ $1 = "-a" ]
@@ -56,3 +56,6 @@ then
 else
 	echo "Parametros incorrectos"
 fi
+
+#Reiniciamos el servidor DNS
+systemctl restart bind9
