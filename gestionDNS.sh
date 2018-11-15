@@ -15,7 +15,7 @@ then
 	fi
 elif [ $1 = "-b" ]
 then
-	echo "Borrar"
+	sed -i '/'${2}'/d' $zonadirecta
 else
 	echo "Incorrecto"
 fi
