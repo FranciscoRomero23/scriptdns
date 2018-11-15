@@ -20,7 +20,14 @@ then
 	fi
 elif [ $1 = "-b" ]
 then
+	dominio=`sed -e '/ORIGIN/ !d' $zonadirecta | cut -d" " -f2`
+	registro=`sed -e '/'${2}'/ !d' db.iesgn.org | cut -f3 -s`
+
 	sed -i '/'${2}'/d' $zonadirecta
+	if [ $registro != "CNAME" ]
+	then
+		sed -i '/'${2}.${dominio}'/d' $zonainversa
+	fi
 else
-	echo "Incorrecto"
+	echo "Parametros incorrectos"
 fi
