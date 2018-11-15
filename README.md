@@ -1,4 +1,4 @@
-+# scriptdns
+# scriptdns
 Script que nos permitira añadir o borrar nombres en un servidor dns
 
 El nombre del script es gestionDNS.sh y recibe cuatro parámetros:
