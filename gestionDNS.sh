@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Script para la gestión minima de un servidor DNS.
+# El script te permite añadir o borrar registros y definir los archivos de las zonas.
+# Script creado por Francisco José Romero Morillo.
+
 #Los archivos de las zonas estan indicados en estas dos variables
 zonadirecta=db.iesgn.org
 zonainversa=db.192.168.10
