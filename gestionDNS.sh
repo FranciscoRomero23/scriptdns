@@ -19,15 +19,11 @@ then
                 #Insertamos los nuevos registros en las zonas directa e inversa
                 echo "$3        IN      A       $4" >> $zonadirecta
                 echo "$ip       IN      PTR     $3.$dominio" >> $zonainversa
-                #Reiniciamos el servidor DNS
-                systemctl restart bind9 >> /dev/null
 
         elif [ $2 = "-alias" ]
         then
                 #Insertamos los nuevos registros en la zona directa
                 echo "$3        IN      CNAME   $4" >> $zonadirecta
-                #Reiniciamos el servidor DNS
-                systemctl restart bind9 >> /dev/null
         else
                 echo "Paramentros incorrectos."
         fi
@@ -44,8 +40,6 @@ then
         then
                 sed -i '/'${2}.${dominio}'/d' $zonainversa
         fi
-        #Reiniciamos el servidor DNS
-        systemctl restart bind9 >> /dev/null
 
 #Con el parametro -zone definimos los archivos de las zonas
 elif [ $1 = "-zone" ]
@@ -54,12 +48,12 @@ then
         if [ $2 = "-direct" ]
         then
                 zonaoriginal=`grep zonadirecta gestionDNS.sh | head -1`
-                sed -i '3 s/'${zonaoriginal}'/zonadirecta='${3}'/g' gestionDNS.sh
+                sed -i '8 s/'${zonaoriginal}'/zonadirecta='${3}'/g' gestionDNS.sh
         #Con el parametro -reverse indicamos la zona inversa
         elif [ $2 = "-reverse" ]
         then
                 zonaoriginal=`grep zonainversa gestionDNS.sh | head -1`
-                sed -i '4 s/'${zonaoriginal}'/zonainversa='${3}'/g' gestionDNS.sh
+                sed -i '9 s/'${zonaoriginal}'/zonainversa='${3}'/g' gestionDNS.sh
         fi
 else
         echo "Parametros incorrectos"
